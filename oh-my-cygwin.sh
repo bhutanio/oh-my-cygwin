@@ -5,11 +5,11 @@ set -e
 cd ~
 
 SIMPLE_BACKUP_SUFFIX=".orig"
-APT_CYG="$(mktemp /tmp/apt-cyg.XXXXXXXX)"
+APT_CYG="/bin/apt-cyg"
 
 # install apt-cyg
-wget --no-check-certificate "https://github.com/john-peterson/apt-cyg/raw/path/apt-cyg" -O "${APT_CYG}"
-chmod +x "${APT_CYG}"
+lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+install apt-cyg /bin
 
 # install some stuff like vim and git
 "${APT_CYG}" install zsh mintty vim curl git openssh
